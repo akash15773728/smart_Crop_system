@@ -1,160 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShopEasy</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f8f9fa;
-    }
-
-    /* Navbar */
-    header {
-      background-color: #222;
-      color: white;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      font-size: 24px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #ff9800;
-    }
-
-    /* Products grid */
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 30px;
-    }
-
-    .product {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 15px;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-
-    .product:hover {
-      transform: scale(1.03);
-    }
-
-    .product img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .product h3 {
-      margin: 10px 0 5px;
-    }
-
-    .product p {
-      color: #666;
-    }
-
-    .product button {
-      background-color: #ff9800;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .product button:hover {
-      background-color: #e68900;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: #222;
-      color: white;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriPredict - Barebones Prototype</title>
 </head>
-<body>
+<body style="font-family: sans-serif; margin: 20px; background-color: #f0f0f0;">
 
-  <!-- Navbar -->
-  <header>
-    <h1>🛒 ShopEasy</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Shop</a>
-      <a href="#">Cart</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+    <!-- Header -->
+    <h1 style="text-align: center;">AgriPredict</h1>
+    <p style="text-align: center; color: #555;">Choose a link.</p>
+    <hr>
 
-  <!-- Product Section -->
-  <section class="products">
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200" alt="Product 1">
-      <h3>Wireless Headphones</h3>
-      <p>₹1,499</p>
-      <button onclick="addToCart('Wireless Headphones')">Add to Cart</button>
+    <!-- Main Content Area -->
+    <div id="feature-container" style="max-width: 800px; margin: 20px auto;">
+        
+        <!-- Features -->
+
+        <!-- 1. Crop Recommendation Card -->
+        <div id="crop" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: white;">
+            <p><strong>Crop Recommendation</strong></p>
+            <p style="font-size: 12px; color: #777;">Inputs: Soil data, Season, Location</p>
+            <a href="#crop-detail" onclick="startFeature('crop')">Start Feature →</a>
+        </div>
+
+        <!-- 2. Fertilizer Guidance Card -->
+        <div id="fertilizer" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: white;">
+            <p><strong>Fertilizer Guidance</strong></p>
+            <p style="font-size: 12px; color: #777;">Inputs: Soil Test Report, Crop Type</p>
+            <a href="#fertilizer-detail" onclick="startFeature('fertilizer')">Start Feature →</a>
+        </div>
+
+        <!-- 3. Weather Alerts Card -->
+        <div id="weather" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: white;">
+            <p><strong>Weather Alerts</strong></p>
+            <p style="font-size: 12px; color: #777;">Outputs: Real-time temperature & rainfall</p>
+            <a href="#weather-detail" onclick="startFeature('weather')">Start Feature →</a>
+        </div>
+
+        <!-- 4. Pest Detection Card -->
+        <div id="pest" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: white;">
+            <p><strong>Pest Detection</strong></p>
+            <p style="font-size: 12px; color: #777;">Inputs: Image upload/camera, Crop health</p>
+            <a href="#pest-detail" onclick="startFeature('pest')">Start Feature →</a>
+        </div>
+
+        <!-- 5. Market Prices Card -->
+        <div id="market" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: white;">
+            <p><strong>Market Prices</strong></p>
+            <p style="font-size: 12px; color: #777;">Outputs: Commodity prices, trend data</p>
+            <a href="#market-detail" onclick="startFeature('market')">Start Feature →</a>
+        </div>
+
+        <!-- 6. Voice Support Card -->
+        <div id="voice" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: white;">
+            <p><strong> Voice Support</strong></p>
+            <p style="font-size: 12px; color: #777;">Inputs: Local language spoken query</p>
+            <a href="#voice-detail" onclick="startFeature('voice')">Start Feature →</a>
+        </div>
     </div>
+    
+    <hr>
+    
+    <!--JavaScript Logic -->
+    <script>
+    
 
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200" alt="Product 2">
-      <h3>Smart Watch</h3>
-      <p>₹2,999</p>
-      <button onclick="addToCart('Smart Watch')">Add to Cart</button>
-    </div>
+        // Function to handle feature navigation (now uses onclick for simplicity)
+        function startFeature(featureId) {
+            console.log([WIP] Feature selected: ${featureId}. Logic needs to be written here.);
+            alert(Opening ${featureId.toUpperCase()} Feature... (TODO: Implement UI here)); 
+            // Note: In a real hackathon, we would use a proper modal instead of alert()!
+        }
 
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200" alt="Product 3">
-      <h3>Sneakers</h3>
-      <p>₹1,999</p>
-      <button onclick="addToCart('Sneakers')">Add to Cart</button>
-    </div>
+        // Placeholder for future API integration
+        function futureApiCall(endpoint) {
+            console.log([TODO] Connect to backend API endpoint: /api/${endpoint});
+            // return fetch(/api/${endpoint});
+        }
 
-    <div class="product">
-      <img src="https://via.placeholder.com/200x200" alt="Product 4">
-      <h3>Bluetooth Speaker</h3>
-      <p>₹899</p>
-      <button onclick="addToCart('Bluetooth Speaker')">Add to Cart</button>
-    </div>
-  </section>
+        // Main app initialization (barely started)
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("AgriPredict minimal script started.");
+            // futureApiCall('initial-data-load');
+        });
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 ShopEasy. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function addToCart(product) {
-      alert(product + " added to cart!");
-    }
-  </script>
-
+    </script>
 </body>
 </html>
-ho gaya test sucessfulll bhai enjoyyyyyyy
-shaa7nn
-hiiieee
- hellloooooooo
- 
